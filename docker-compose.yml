@@ -95,8 +95,8 @@ services:
       - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
       - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
     environment:
-      - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
-      - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
       - GF_USERS_ALLOW_SIGN_UP=false
     restart: unless-stopped
     expose:
@@ -136,3 +136,16 @@ services:
       - monitor-net
     labels:
       org.label-schema.group: "monitoring"
+
+  json-exporter:
+    image: quay.io/prometheuscommunity/json-exporter:v0.4.0
+    container_name: json-exporter
+    volumes:
+      - ./json-exporter/config.yml:/config.yml
+    restart: unless-stopped
+    labels:
+      org.label-schema.group: "monitoring"
+    expose:
+      - 7979
+    networks:
+      - monitor-net

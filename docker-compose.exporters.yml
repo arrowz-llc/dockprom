@@ -35,5 +35,12 @@ services:
     network_mode: host
     labels:
       org.label-schema.group: "monitoring"
-  
-
+  json-exporter:
+    image: quay.io/prometheuscommunity/json-exporter:v0.4.0
+    container_name: json-exporter
+    volumes:
+      - ./json-exporter/config.yml:/config.yml
+    restart: unless-stopped
+    network_mode: host
+    labels:
+      org.label-schema.group: "monitoring"

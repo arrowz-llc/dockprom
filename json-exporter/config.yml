@@ -1,0 +1,18 @@
+headers:
+  MyHeader: MyHeaderValue
+
+metrics:
+  - name: gala_node
+    type: object
+    help: General statistics of a gala-headless-node
+    path: '{.workloads[*]}'
+    labels:
+      name: '{.name}'
+      etcMachineID: '{.etcMachineID}'
+    values:
+      msActiveToday: '{.msActiveToday}'
+      licenseCount: '{.licenseCount}'
+      accountWorkloadsOnline: '{.myWorkloadsOnline}'
+      totalWorkloadsOnline: '{.totalWorkloadsOnline}'
+      epochDate: '{.date}'
+
