@@ -8,7 +8,7 @@ metrics:
     path: '{.workloads[*]}'
     labels:
       name: '{.name}'
-      etcMachineID: '{.etcMachineID}'
+#      etcMachineID: '{.etcMachineID}'
     values:
       msActiveToday: '{.msActiveToday}'
       licenseCount: '{.licenseCount}'

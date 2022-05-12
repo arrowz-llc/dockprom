@@ -42,8 +42,8 @@ scrape_configs:
     metrics_path: /probe
     static_configs:
       - targets:
-          - http://10.36.0.10:22200/gala-node-2/gala-node-stats.json
-          - http://10.36.0.10:22200/gala-node-1/gala-node-stats.json
+          - http://10.36.0.10:22200/74d2234e29857eda442908e9627d2ed8/gala-node-stats.json
+          - http://10.36.0.10:22200/051c6faf5a617c2d18ba9876627c3c73/gala-node-stats.json
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
